@@ -1,6 +1,8 @@
 package com.example.Java_Assessment_4.entity;
 
 import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -9,8 +11,10 @@ import javax.validation.constraints.Size;
 public class Employee {
     @Size(min=4, message = "Name should be at least 4 characters")
     String name;
-    @Pattern(regexp=".@..com$", message = "Please enter a valid email")
+
+    @Pattern(regexp="^(.+)@.*\\.com", message = "Please enter a valid email")
     String email;
+
     @Min(value = 1000, message = "Salary should be more than 1000")
     Long salary;
 
